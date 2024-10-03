@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "sidebar content ad"
+                "footer footer footer";
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            height: 100vh;
+        }
+
+        header {
+            grid-area: header;
+            background-color: rebeccapurple;
+            height: 100px;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: deepskyblue;
+        }
+        .sidebar > div{
+            background-color: blue
+        }
+
+        .content {
+            grid-area: content;
+            background-color: white;
+        }
+
+        .ad {
+            grid-area: ad;
+            background-color: deepskyblue;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: dodgerblue;
+            height: 50px;
+        }
+
+        /* Media Query for Phone */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "content"
+                    "ad"
+                    "footer";
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto auto;
+            }
+
+            header {
+                height: 60px;
+            }
+
+            footer {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header></header>
+        <div class="sidebar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="content"></div>
+        <div class="ad"></div>
+        <footer></footer>
+    </div>
+
+</body>
+</html>
